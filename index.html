@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- === RASTREIO UTMIFY === -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    <script>
+      window.pixelId = "6985955026372217235b539d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <!-- ======================= -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Avaliação Oficial - Protocolo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0c0a15;
+            min-height: 100vh;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+
+        /* Fundo de estrelas */
+        .particles-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0));
+            background-size: 150px 150px;
+            opacity: 0.15;
+            z-index: 0;
+            animation: moveStars 60s linear infinite;
+        }
+        @keyframes moveStars { from { transform: translateY(0); } to { transform: translateY(-150px); } }
+
+        /* Luz de fundo premium */
+        body::before {
+            content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(219,39,119,0.15) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0; border-radius: 50%;
+        }
+
+        .logo-box {
+            text-align: center; margin-top: 40px; margin-bottom: 20px;
+            position: relative; z-index: 2; animation: fadeIn 1s ease forwards;
+        }
+        .logo-text-1 {
+            font-family: 'Playfair Display', serif; color: #facc15; font-size: 2.8rem;
+            text-shadow: 0 0 20px rgba(250,204,21,0.4); line-height: 1;
+        }
+        .logo-text-2 {
+            font-family: 'Inter', sans-serif; color: #9d174d; font-size: 0.85rem;
+            letter-spacing: 0.6em; font-weight: 600; margin-left: 0.6em;
+            text-transform: uppercase;
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            width: 100%; max-width: 500px;
+            border-radius: 40px 40px 0 0;
+            padding: 50px 30px 80px 30px;
+            position: relative; z-index: 2;
+            box-shadow: 0 -15px 40px rgba(0,0,0,0.5), inset 0 2px 10px rgba(255,255,255,0.05);
+            text-align: center;
+            min-height: 75vh;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 20px; flex: 1;
+        }
+
+        .title-main {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 400;
+            line-height: 1.5; color: #94a3b8; margin-bottom: 35px;
+        }
+
+        .progress-bar-container {
+            width: 100%; background: rgba(255,255,255,0.05); border-radius: 30px;
+            height: 8px; margin-bottom: 40px; overflow: hidden; display: none;
+            position: relative; z-index: 2; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .progress-bar-fill {
+            height: 100%; background: linear-gradient(90deg, #db2777 0%, #f472b6 100%);
+            width: 0%; border-radius: 30px; transition: width 0.6s ease;
+            box-shadow: 0 0 15px rgba(219,39,119,0.5);
+        }
+
+        .quiz-container {
+            display: none; flex-direction: column;
+            animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .quiz-container.active { display: flex; }
+
+        .question {
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; line-height: 1.3;
+            color: #f8fafc;
+        }
+        .question-sub {
+            font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
+            color: #db2777; margin-bottom: 30px; letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        .btn-quiz {
+            background: rgba(255,255,255,0.05); color: #f8fafc;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 24px; border-radius: 20px; font-size: 1.15rem; font-weight: 600;
+            font-family: 'Inter', sans-serif; margin-bottom: 12px; cursor: pointer;
+            transition: all 0.3s ease; text-align: left;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .btn-quiz:hover { 
+            background: rgba(219,39,119,0.15); border-color: rgba(219,39,119,0.5);
+            transform: translateY(-2px);
+        }
+        .btn-quiz:active { transform: scale(0.98); }
+
+        .btn-start {
+            background: linear-gradient(135deg, #db2777 0%, #9d174d 100%);
+            color: white; border: none; padding: 22px; border-radius: 20px;
+            font-size: 1.25rem; font-weight: 800; font-family: 'Outfit', sans-serif;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; width: 100%;
+            box-shadow: 0 10px 25px rgba(219,39,119,0.4), inset 0 2px 5px rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        .btn-start:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(219,39,119,0.5); }
+
+        .btn-final {
+            display: block; background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white; text-decoration: none; padding: 24px; border-radius: 20px;
+            font-size: 1.3rem; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(16,185,129,0.4), inset 0 2px 5px rgba(255,255,255,0.2);
+            animation: pulse-green 2s infinite; margin-top: 20px; transition: all 0.2s;
+        }
+
+        .loader-spinner {
+            width: 70px; height: 70px; border: 4px solid rgba(219,39,119,0.1);
+            border-top: 4px solid #db2777; border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto 30px;
+        }
+
+        .disclaimer {
+            font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #64748b;
+            margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse-green { 0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(16,185,129,0.4); } 50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(16,185,129,0.6); } }
+    </style>
+</head>
+<body>
+    <div class="particles-bg"></div>
+
+    <div class="logo-box">
+        <div class="logo-text-1">Protocolo</div>
+        <div class="logo-text-2">GELATINA</div>
+    </div>
+
+    <div class="glass-box">
+        
+        <div class="progress-bar-container" id="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+
+        <!-- Tela de Abertura -->
+        <div id="intro-screen" style="display: block; margin-top: 20px;">
+            <div style="background: rgba(219,39,119,0.1); width: 60px; height: 60px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
+                <i data-lucide="activity" style="color: #db2777; width: 30px; height: 30px;"></i>
+            </div>
+            <div class="title-main">Avaliação de Perfil</div>
+            <div class="subtitle">Faça nossa análise rápida e descubra a variação do protocolo ideal para as suas características.</div>
+            <button class="btn-start" onclick="startQuiz()">INICIAR AVALIAÇÃO</button>
+            <div class="disclaimer"><i data-lucide="lock" style="width: 14px; height: 14px;"></i> Dados 100% seguros e anônimos.</div>
+        </div>
+
+        <!-- Pergunta 1: Idade -->
+        <div class="quiz-container" id="step-1">
+            <div class="question">Qual a sua faixa etária?</div>
+            <div class="question-sub">Passo 1 de 5</div>
+            <button class="btn-quiz" onclick="nextStep(2)"><span>18 a 25 anos</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(2)"><span>26 a 35 anos</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(2)"><span>36 a 45 anos</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(2)"><span>Acima de 45 anos</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+        </div>
+
+        <!-- Pergunta 2: Peso -->
+        <div class="quiz-container" id="step-2">
+            <div class="question">Qual o seu peso aproximado atual?</div>
+            <div class="question-sub">Passo 2 de 5</div>
+            <button class="btn-quiz" onclick="nextStep(3)"><span>Até 65 kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(3)"><span>De 66 a 80 kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(3)"><span>De 81 a 95 kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(3)"><span>Acima de 95 kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+        </div>
+
+        <!-- Pergunta 3: Meta -->
+        <div class="quiz-container" id="step-3">
+            <div class="question">Qual a sua principal meta de redução?</div>
+            <div class="question-sub">Passo 3 de 5</div>
+            <button class="btn-quiz" onclick="nextStep(4)"><span>Perder menos de 5kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(4)"><span>Perder entre 5kg e 15kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(4)"><span>Perder mais de 15kg</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+        </div>
+
+        <!-- Pergunta 4: Obstáculo -->
+        <div class="quiz-container" id="step-4">
+            <div class="question">Qual o seu maior desafio no dia a dia?</div>
+            <div class="question-sub">Passo 4 de 5</div>
+            <button class="btn-quiz" onclick="nextStep(5)"><span>Metabolismo lento</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(5)"><span>Vontade forte de doces</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+            <button class="btn-quiz" onclick="nextStep(5)"><span>Falta de tempo para rotinas longas</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+        </div>
+
+        <!-- Pergunta 5: Tempo -->
+        <div class="quiz-container" id="step-5">
+            <div class="question">Você tem 10 minutos por dia para preparar o método?</div>
+            <div class="question-sub">Último Passo</div>
+            <button class="btn-quiz" onclick="nextStep('load')"><span style="color: #4ade80; font-weight: 700;">Sim, eu consigo!</span> <i data-lucide="check-circle-2" style="width: 18px; color: #4ade80;"></i></button>
+            <button class="btn-quiz" onclick="nextStep('load')"><span>Vou me esforçar para ter</span> <i data-lucide="chevron-right" style="width: 18px; color: #64748b;"></i></button>
+        </div>
+
+        <!-- Loading -->
+        <div class="quiz-container" id="step-load" style="margin-top: 40px;">
+            <div class="loader-spinner"></div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #fff;" id="load-text">Analisando biotipo...</div>
+            <div style="font-family: 'Inter', sans-serif; font-size: 1rem; color: #94a3b8; margin-top: 15px;" id="load-subtext">Isso levará apenas alguns segundos.</div>
+        </div>
+
+        <!-- Resposta Final -->
+        <div class="quiz-container" id="step-final">
+            <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); padding: 20px; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i data-lucide="check" style="color: #10b981; width: 40px; height: 40px;"></i>
+            </div>
+            
+            <div class="question" style="color: #fff; font-size: 2rem;">Perfil Compatível!</div>
+            
+            <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.5; margin-bottom: 25px; color: #cbd5e1;">
+                Cruzamos sua idade e meta de peso. Seu organismo tem alta compatibilidade com a ativação metabólica da <strong>Gelatina Noturna</strong>.
+            </p>
+
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: left;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; line-height: 1.8; color: #e2e8f0;">
+                    <i data-lucide="target" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #4ade80;"></i> <span style="color:#94a3b8;">Taxa de Êxito:</span> Alta <br>
+                    <i data-lucide="clock" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #db2777;"></i> <span style="color:#94a3b8;">Tempo de Preparo:</span> ~10 mins<br>
+                    <i data-lucide="smartphone" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #3b82f6;"></i> <span style="color:#94a3b8;">Formato:</span> Aplicativo Liberado
+                </p>
+            </div>
+            
+            <a href="https://checkout.pagamentocenterlink.shop/checkout/pro-a07894f8-3f8b-49ab-b726-8f9f7a818cda" class="btn-final">
+                ACESSAR MEU PROTOCOLO
+            </a>
+            
+            <div class="disclaimer" style="margin-top: 20px;"><i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Sistema oficial e protegido.</div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const totalSteps = 5;
+        
+        function startQuiz() {
+            document.getElementById('intro-screen').style.display = 'none';
+            document.getElementById('progress-bar-container').style.display = 'block';
+            goToStep(1);
+        }
+
+        function goToStep(num) {
+            document.querySelectorAll('.quiz-container').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + num).classList.add('active');
+            updateProgress(num);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateProgress(currentStep) {
+            const percentage = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-fill').style.width = percentage + '%';
+        }
+
+        function nextStep(stepParams) {
+            if (stepParams === 'load') {
+                document.querySelectorAll('.quiz-container').forEach(el => el.classList.remove('active'));
+                document.getElementById('progress-bar-container').style.display = 'none';
+                document.getElementById('step-load').classList.add('active');
+                
+                setTimeout(() => { 
+                    document.getElementById('load-text').innerText = "Cruzando dados de idade e peso..."; 
+                }, 2000);
+                
+                setTimeout(() => { 
+                    document.getElementById('load-text').innerText = "Gerando protocolo personalizado..."; 
+                    document.getElementById('load-subtext').innerText = "Quase pronto...";
+                }, 4000);
+
+                setTimeout(() => {
+                    document.getElementById('step-load').classList.remove('active');
+                    document.getElementById('step-final').classList.add('active');
+                }, 6000);
+            } else {
+                goToStep(stepParams);
+            }
+        }
+    </script>
+</body>
+</html>
