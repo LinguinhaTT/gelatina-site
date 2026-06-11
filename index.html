@@ -174,6 +174,40 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes pulse-green { 0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(16,185,129,0.4); } 50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(16,185,129,0.6); } }
+
+        .timer-box {
+            background: rgba(219,39,119,0.1); border: 1px solid rgba(219,39,119,0.3);
+            border-radius: 16px; padding: 14px 20px; margin-bottom: 24px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .timer-label {
+            font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #f472b6; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .timer-count {
+            font-size: 1.5rem; font-weight: 900; color: #fff;
+            font-variant-numeric: tabular-nums; min-width: 52px;
+        }
+        .timer-count.urgent { color: #f87171; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .testimonials-wrap { margin-bottom: 24px; }
+        .testimonial-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px; padding: 16px 18px; margin-bottom: 12px; text-align: left;
+        }
+        .testimonial-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .testimonial-avatar {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: linear-gradient(135deg, #db2777, #9d174d);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1rem; color: #fff; flex-shrink: 0;
+        }
+        .testimonial-name { font-weight: 700; font-size: 0.95rem; color: #f8fafc; }
+        .testimonial-stars { color: #facc15; font-size: 0.8rem; letter-spacing: 1px; }
+        .testimonial-text {
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -259,25 +293,68 @@
             <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); padding: 20px; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                 <i data-lucide="check" style="color: #10b981; width: 40px; height: 40px;"></i>
             </div>
-            
-            <div class="question" style="color: #fff; font-size: 2rem;">Perfil Compatível!</div>
-            
-            <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.5; margin-bottom: 25px; color: #cbd5e1;">
-                Cruzamos sua idade e meta de peso. Seu organismo tem alta compatibilidade com a ativação metabólica da <strong>Gelatina Noturna</strong>.
+
+            <div class="question" style="color: #fff; font-size: 1.9rem; line-height: 1.2;">Seu corpo está pronto para emagrecer enquanto você dorme!</div>
+
+            <p style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.5; margin: 16px 0 22px; color: #cbd5e1;">
+                Cruzamos sua idade e meta de peso. Seu organismo tem <strong style="color:#4ade80;">alta compatibilidade</strong> com a ativação metabólica da <strong>Gelatina Noturna</strong>.
             </p>
 
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: left;">
+            <!-- Timer de urgência -->
+            <div class="timer-box">
+                <i data-lucide="timer" style="color: #f472b6; width: 20px; height: 20px; flex-shrink:0;"></i>
+                <div>
+                    <div class="timer-label">Oferta reservada por</div>
+                    <div class="timer-count" id="countdown">10:00</div>
+                </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 20px; margin-bottom: 24px; text-align: left;">
                 <p style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; line-height: 1.8; color: #e2e8f0;">
                     <i data-lucide="target" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #4ade80;"></i> <span style="color:#94a3b8;">Taxa de Êxito:</span> Alta <br>
                     <i data-lucide="clock" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #db2777;"></i> <span style="color:#94a3b8;">Tempo de Preparo:</span> ~10 mins<br>
                     <i data-lucide="smartphone" style="width: 16px; height: 16px; display: inline-block; vertical-align: text-bottom; color: #3b82f6;"></i> <span style="color:#94a3b8;">Formato:</span> Aplicativo Liberado
                 </p>
             </div>
-            
+
+            <!-- Depoimentos -->
+            <div class="testimonials-wrap">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <div class="testimonial-name">Mariana S.</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Perdi 8kg em 6 semanas sem academia. Faço antes de dormir, é simples demais. Não acreditei no começo, mas os resultados falam por si."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">C</div>
+                        <div>
+                            <div class="testimonial-name">Claudia R.</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Já tentei de tudo. Esse protocolo foi o único que encaixou na minha rotina corrida. Na terceira semana já senti a diferença na calça."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">P</div>
+                        <div>
+                            <div class="testimonial-name">Patrícia M.</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Meu metabolismo sempre foi lento. Com a Gelatina Noturna acordei mais disposta e fui emagrecendo sem sofrimento. Recomendo muito!"</div>
+                </div>
+            </div>
+
             <a href="https://checkout.pagamentocenterlink.shop/checkout/pro-a07894f8-3f8b-49ab-b726-8f9f7a818cda" class="btn-final">
-                ACESSAR MEU PROTOCOLO
+                ACESSAR MEU PROTOCOLO AGORA
             </a>
-            
+
             <div class="disclaimer" style="margin-top: 20px;"><i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Sistema oficial e protegido.</div>
         </div>
 
@@ -323,10 +400,23 @@
                 setTimeout(() => {
                     document.getElementById('step-load').classList.remove('active');
                     document.getElementById('step-final').classList.add('active');
+                    startCountdown();
                 }, 6000);
             } else {
                 goToStep(stepParams);
             }
+        }
+        function startCountdown() {
+            let total = 10 * 60;
+            const el = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                const m = Math.floor(total / 60);
+                const s = total % 60;
+                el.textContent = m + ':' + String(s).padStart(2, '0');
+                if (total <= 60) el.classList.add('urgent');
+                if (total <= 0) { clearInterval(interval); el.textContent = '00:00'; }
+                total--;
+            }, 1000);
         }
     </script>
 </body>
